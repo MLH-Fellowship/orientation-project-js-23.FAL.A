@@ -175,15 +175,17 @@ export default function FileDropzone({ className }) {
           <p>Drag 'n' drop some files here, or click to select file</p>
         </div>
         <aside style={thumbsContainer}>{thumbs}</aside>
-        <button
-          onClick={handleUpload}
-          style={{
-            padding: "5px 10px",
-            marginBottom: "10px",
-          }}
-        >
-          Confirm upload
-        </button>
+        {selectedFile.length === 1 && (
+          <button
+            onClick={handleUpload}
+            style={{
+              padding: "5px 10px",
+              marginBottom: "10px",
+            }}
+          >
+            Confirm upload
+          </button>
+        )}
       </section>
     </div>
   );
