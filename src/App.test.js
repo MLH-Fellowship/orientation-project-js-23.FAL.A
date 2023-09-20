@@ -14,7 +14,7 @@ describe("Drag and drop component", () => {
   test("do not render file upload btn", () => {
     render(<FileDropzone />);
 
-    const elem = screen.getByText(/Confirm upload/);
+    const elem = screen.queryByText(/Confirm upload/);
     expect(elem).not.toBeInTheDocument();
   });
 });
