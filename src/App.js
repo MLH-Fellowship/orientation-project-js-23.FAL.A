@@ -1,4 +1,5 @@
 import "./App.css";
+import FileDropzone from "./components/FileDropzone";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       </div>
       <br></br>
       <button>Export</button>
+      <FileDropzone />
     </div>
   );
 }
