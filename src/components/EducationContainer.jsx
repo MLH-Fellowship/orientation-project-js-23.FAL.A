@@ -11,25 +11,27 @@ export const EducationContainer = () => {
             schoolName: "Cool School",
             startDate: "2021-09",
             endDate: "2025-06",
-            schoolDescription: "Learnt stuff"
+            schoolDescription: "Learnt stuff",
+            logo: "https://static.mlh.io/brand-assets/logo/official/mlh-logo-color.png",
           },
         ]);
     }, []);
 
     return (
         <div className="resumeSection">
-          <h2>Experience</h2>
+          <h2>Education</h2>
           <div className="educationBox">
             {education.map((e) => (
               <div className="education">
                 {/* Add a small logo next to the school name */}
-                <div>
-                  <img src="https://cdn.iconscout.com/icon/free/png-256/school-278-109840.png" alt="logo" height={64} width={64} />
-                  <h3>{e.schoolName}</h3>
-              
+                <div className="content">
+                  <h3>{e.schoolName}</h3>  
+                  <p className="dates">{e.startDate} - {e.endDate}</p>
+                  <p className="description">{e.schoolDescription}</p>
                 </div>
-              <p className="dates">{e.startDate} - {e.endDate}</p>
-              <p className="description">{e.schoolDescription}</p>
+                <div className="logo">
+                  <img src={e.logo} alt="logo" height={128} width={128} />  
+                </div>
               </div>
             ))}
           </div>

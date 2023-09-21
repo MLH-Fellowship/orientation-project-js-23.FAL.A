@@ -45,7 +45,8 @@ export const SkillsContainer = () => {
               <h4>{skill.proficiency}</h4>
               </div>
             ))}
-      </div>
+         </div>
+          <button>Add Skills</button>
         </div>
     );
 }

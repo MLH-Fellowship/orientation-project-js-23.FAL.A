@@ -12,9 +12,12 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 
               0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
   margin: 1rem;
   text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .dates {
