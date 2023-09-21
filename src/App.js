@@ -1,6 +1,11 @@
+import Modal from "./components/Modal/Modal";
+import AddSkillForm from "./views/Skills/AddSkillForm";
+import React, { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [showSkillModal, setShowSkillModal] = useState(false);
+
   return (
     <div className="App">
       <h1>Resume Builder</h1>
@@ -17,10 +22,13 @@ function App() {
         <br></br>
       </div>
       <div className="resumeSection">
-        <h2>Skills</h2>
-        <p>Skill Placeholder</p>
-        <button>Add Skill</button>
-        <br></br>
+      <h2>Skills</h2>
+      <p>Skill Placeholder</p>
+      <button onClick={() => setShowSkillModal(true)}>Add Skill</button>
+      <Modal isOpen={showSkillModal} onClose={() => setShowSkillModal(false)}>
+        <AddSkillForm />
+      </Modal>
+      <br></br>
       </div>
       <br></br>
       <button>Export</button>
