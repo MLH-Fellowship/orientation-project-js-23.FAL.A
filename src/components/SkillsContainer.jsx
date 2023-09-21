@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./SkillsContainer.css";
 
 export const SkillsContainer = () => {
     const [skills, setSkills] = useState([]);
@@ -16,13 +17,19 @@ export const SkillsContainer = () => {
                 id: 2,
                 name: "CSS",
                 logo: "https://cdn.iconscout.com/icon/free/png-256/css3-11-1175239.png",
-                proficiency: "Advanced"
+                proficiency: "Wizard"
             },
             {
                 id: 3,
                 name: "JavaScript",
                 logo: "https://cdn.iconscout.com/icon/free/png-256/javascript-2038874-1720087.png",
-                proficiency: "Advanced"
+                proficiency: "Grand Wizard"
+            },
+            {
+                id: 4,
+                name: "React",
+                logo: "logo192.png",
+                proficiency: "Apprentice"
             },
         ]);
     }, []);
@@ -30,7 +37,7 @@ export const SkillsContainer = () => {
     return (
         <div className="resumeSection">
           <h2>Skills</h2>
-          <div id="skillBox">
+          <div className="skillBox">
             {skills.map((skill) => (
               <div className="skill">
               <h3>{skill.name}</h3>
