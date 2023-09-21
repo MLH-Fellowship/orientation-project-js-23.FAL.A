@@ -1,12 +1,14 @@
 import Modal from "./components/Modal/Modal";
 import AddSkillForm from "./views/Skills/AddSkillForm";
 import AddEducationForm from "./views/Education/AddEducationForm";
+import AddExperienceForm from "./views/Experience/AddExperienceForm";
 import React, { useState } from "react";
 import "./App.css";
 
 function App() {
   const [showSkillModal, setShowSkillModal] = useState(false);
   const [showEducationModal, setShowEducationModal] = useState(false);
+  const [showExperienceModal, setShowExperienceModal] = useState(false);
 
   return (
     <div className="App">
@@ -14,7 +16,10 @@ function App() {
       <div className="resumeSection">
         <h2>Experience</h2>
         <p>Experience Placeholder</p>
-        <button>Add Experience</button>
+        <button onClick={() => setShowExperienceModal(true)}>Add Experience</button>
+        <Modal isOpen={showExperienceModal} onClose={() => setShowExperienceModal(false)}>
+          <AddExperienceForm />
+        </Modal>
         <br></br>
       </div>
       <div className="resumeSection">
@@ -24,6 +29,7 @@ function App() {
         <Modal isOpen={showEducationModal} onClose={() => setShowEducationModal(false)}>
           <AddEducationForm />
         </Modal>
+        <br></br>
       </div>
       <div className="resumeSection">
       <h2>Skills</h2>
