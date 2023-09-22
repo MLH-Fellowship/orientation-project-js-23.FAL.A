@@ -5,16 +5,7 @@ export const EducationContainer = () => {
   const [education, setEducation] = useState([]);
 
   useEffect(() => {
-    setEducation([
-      {
-        id: 1,
-        schoolName: "Cool School",
-        startDate: "2021-09",
-        endDate: "2025-06",
-        schoolDescription: "Learnt stuff",
-        logo: "https://static.mlh.io/brand-assets/logo/official/mlh-logo-color.png",
-      },
-    ]);
+    setEducation(mockEducation);
   }, []);
 
   return (
@@ -25,11 +16,12 @@ export const EducationContainer = () => {
           <div className="education" key={e.id}>
             {/* Add a small logo next to the school name */}
             <div className="content">
-              <h3>{e.schoolName}</h3>
+              <h3>
+                {e.school} - {e.course}
+              </h3>
               <p className="dates">
-                {e.startDate} - {e.endDate}
+                {e.startDate} - {e.endDate} &nbsp; Grade: {e.grade}
               </p>
-              <p className="description">{e.schoolDescription}</p>
             </div>
             <div className="logo">
               <img src={e.logo} alt="logo" height={128} width={128} />
@@ -41,3 +33,15 @@ export const EducationContainer = () => {
     </div>
   );
 };
+
+export const mockEducation = [
+  {
+    id: 1,
+    course: "Cool Class",
+    school: "Cool University",
+    startDate: "2021-09",
+    endDate: "2025-06",
+    grade: "99%",
+    logo: "https://static.mlh.io/brand-assets/logo/official/mlh-logo-color.png",
+  },
+];

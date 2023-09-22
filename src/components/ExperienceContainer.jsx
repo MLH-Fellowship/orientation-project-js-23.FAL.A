@@ -5,26 +5,7 @@ export const ExperienceContainer = () => {
   const [experience, setExperience] = useState([]);
 
   useEffect(() => {
-    setExperience([
-      {
-        id: 1,
-        companyName: "MLH Fellowship",
-        jobTitle: "Software Engineering Fellow",
-        startDate: "2023-09",
-        endDate: "2023-12",
-        jobDescription: "Did awesome stuff",
-        logo: "https://static.mlh.io/brand-assets/logo/official/mlh-logo-color.png",
-      },
-      {
-        id: 2,
-        companyName: "Hello World Inc.",
-        jobTitle: "Programmer",
-        startDate: "Start Date",
-        endDate: "End Date",
-        jobDescription: "Programming stuff",
-        logo: "https://static.mlh.io/brand-assets/logo/official/mlh-logo-color.png",
-      },
-    ]);
+    setExperience(mockExperience);
   }, []);
 
   return (
@@ -35,12 +16,12 @@ export const ExperienceContainer = () => {
           <div className="experience" key={experience.id}>
             <div className="content">
               <h3>
-                {experience.companyName} - {experience.jobTitle}
+                {experience.company} - {experience.title}
               </h3>
               <p className="dates">
                 {experience.startDate} - {experience.endDate}
               </p>
-              <p className="description">{experience.jobDescription}</p>
+              <p className="description">{experience.description}</p>
             </div>
             <div className="logo">
               <img src={experience.logo} alt="logo" height={128} width={128} />
@@ -52,3 +33,24 @@ export const ExperienceContainer = () => {
     </div>
   );
 };
+
+export const mockExperience = [
+  {
+    id: 1,
+    company: "MLH Fellowship",
+    title: "Software Engineering Fellow",
+    startDate: "2023-09",
+    endDate: "2023-12",
+    description: "Did awesome stuff",
+    logo: "https://static.mlh.io/brand-assets/logo/official/mlh-logo-color.png",
+  },
+  {
+    id: 2,
+    company: "Hello World Inc.",
+    title: "Programmer",
+    startDate: "Start Date",
+    endDate: "End Date",
+    description: "Programming stuff",
+    logo: "https://static.mlh.io/brand-assets/logo/official/mlh-logo-color.png",
+  },
+];
