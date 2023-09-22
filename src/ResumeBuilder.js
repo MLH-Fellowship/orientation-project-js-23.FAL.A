@@ -1,4 +1,11 @@
 // ResumeBuilder.js
+/*
+  File: ResumeBuilder.js
+  Author: Your Name
+  Date: September 20, 2023
+  Description: This file contains the React component for a Resume Builder application.
+*/
+
 import React, { useState } from 'react';
 
 function ResumeBuilder() {
