@@ -1,9 +1,11 @@
 import "./App.css";
+import PersonalInfoForm from "./components/PersonalInfoForm.js";
 
 function App() {
   return (
     <div className="App">
       <h1>Resume Builder</h1>
+      <PersonalInfoForm></PersonalInfoForm>
       <div className="resumeSection">
         <h2>Experience</h2>
         <p>Experience Placeholder</p>

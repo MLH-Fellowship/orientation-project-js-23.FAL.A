@@ -1,0 +1,50 @@
+.personal-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.personal-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.phone-form-item {
+    display: flex;
+    width: 100%;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+
+.error-message {
+    min-height: 1.5rem;
+}
+
+.prefix-input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: lightgray;
+}
+
+.phone-input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+    width: 100%;
+}
+
+input {
+    line-height: 1.5rem;
+    border: 1px solid;
+    border-radius: 5px;
+}
