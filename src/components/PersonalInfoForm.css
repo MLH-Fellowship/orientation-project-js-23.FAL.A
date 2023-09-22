@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
-  padding: 10px;
+  margin-bottom: 2rem;
+  padding: 1rem;
 }
 
 .personal-form {
@@ -22,7 +22,6 @@
 .phone-form-item {
   display: flex;
   width: 100%;
-  /* justify-content: space-around; */
   align-items: center;
 }
 
