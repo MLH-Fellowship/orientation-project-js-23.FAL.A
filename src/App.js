@@ -16,8 +16,13 @@ function App() {
       <div className="resumeSection">
         <h2>Experience</h2>
         <p>Experience Placeholder</p>
-        <button onClick={() => setShowExperienceModal(true)}>Add Experience</button>
-        <Modal isOpen={showExperienceModal} onClose={() => setShowExperienceModal(false)}>
+        <button onClick={() => setShowExperienceModal(true)}>
+          Add Experience
+        </button>
+        <Modal
+          isOpen={showExperienceModal}
+          onClose={() => setShowExperienceModal(false)}
+        >
           <AddExperienceForm />
         </Modal>
         <br></br>
@@ -25,8 +30,13 @@ function App() {
       <div className="resumeSection">
         <h2>Education</h2>
         <p>Education Placeholder</p>
-        <button onClick={() => setShowEducationModal(true)}>Add Education</button>
-        <Modal isOpen={showEducationModal} onClose={() => setShowEducationModal(false)}>
+        <button onClick={() => setShowEducationModal(true)}>
+          Add Education
+        </button>
+        <Modal
+          isOpen={showEducationModal}
+          onClose={() => setShowEducationModal(false)}
+        >
           <AddEducationForm />
         </Modal>
         <br></br>

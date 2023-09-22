@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function AddSkillForm({ onSubmit }) {
-  const [name, setName] = useState('');
-  const [proficiency, setProficiency] = useState('');
-  const [logo, setLogo] = useState('');
+  const [name, setName] = useState("");
+  const [proficiency, setProficiency] = useState("");
+  const [logo, setLogo] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const skillData = {
       name,
       proficiency,
-      logo
+      logo,
     };
 
     try {
-      const response = await fetch('/resume/skill', {
-        method: 'POST',
+      const response = await fetch("/resume/skill", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(skillData)
+        body: JSON.stringify(skillData),
       });
 
       const result = await response.json();
@@ -40,19 +40,19 @@ function AddSkillForm({ onSubmit }) {
     <form onSubmit={handleSubmit}>
       <input
         value={name}
-        onChange={e => setName(e.target.value)}
+        onChange={(e) => setName(e.target.value)}
         placeholder="Skill Name"
         required
       />
       <input
         value={proficiency}
-        onChange={e => setProficiency(e.target.value)}
+        onChange={(e) => setProficiency(e.target.value)}
         placeholder="Proficiency"
         required
       />
       <input
         value={logo}
-        onChange={e => setLogo(e.target.value)}
+        onChange={(e) => setLogo(e.target.value)}
         placeholder="Logo URL"
         required
       />

@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function AddEducationForm({ onSubmit }) {
-  const [course, setCourse] = useState('');
-  const [school, setSchool] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-  const [grade, setGrade] = useState('');
-  const [logo, setLogo] = useState('');
+  const [course, setCourse] = useState("");
+  const [school, setSchool] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [grade, setGrade] = useState("");
+  const [logo, setLogo] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,16 +17,16 @@ function AddEducationForm({ onSubmit }) {
       start_date: startDate,
       end_date: endDate,
       grade,
-      logo
+      logo,
     };
 
     try {
-      const response = await fetch('/resume/education', {
-        method: 'POST',
+      const response = await fetch("/resume/education", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(educationData)
+        body: JSON.stringify(educationData),
       });
 
       const result = await response.json();
@@ -46,37 +46,37 @@ function AddEducationForm({ onSubmit }) {
     <form onSubmit={handleSubmit}>
       <input
         value={course}
-        onChange={e => setCourse(e.target.value)}
+        onChange={(e) => setCourse(e.target.value)}
         placeholder="Course"
         required
       />
       <input
         value={school}
-        onChange={e => setSchool(e.target.value)}
+        onChange={(e) => setSchool(e.target.value)}
         placeholder="School"
         required
       />
       <input
         value={startDate}
-        onChange={e => setStartDate(e.target.value)}
+        onChange={(e) => setStartDate(e.target.value)}
         placeholder="Start Date"
         required
       />
       <input
         value={endDate}
-        onChange={e => setEndDate(e.target.value)}
+        onChange={(e) => setEndDate(e.target.value)}
         placeholder="End Date"
         required
       />
       <input
         value={grade}
-        onChange={e => setGrade(e.target.value)}
+        onChange={(e) => setGrade(e.target.value)}
         placeholder="Grade"
         required
       />
       <input
         value={logo}
-        onChange={e => setLogo(e.target.value)}
+        onChange={(e) => setLogo(e.target.value)}
         placeholder="Logo URL"
       />
       <button type="submit">Add Education</button>
