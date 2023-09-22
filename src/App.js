@@ -32,13 +32,13 @@ function App() {
         <br></br>
       </div>
       <div className="resumeSection">
-      <h2>Skills</h2>
-      <p>Skill Placeholder</p>
-      <button onClick={() => setShowSkillModal(true)}>Add Skill</button>
-      <Modal isOpen={showSkillModal} onClose={() => setShowSkillModal(false)}>
-        <AddSkillForm />
-      </Modal>
-      <br></br>
+        <h2>Skills</h2>
+        <p>Skill Placeholder</p>
+        <button onClick={() => setShowSkillModal(true)}>Add Skill</button>
+        <Modal isOpen={showSkillModal} onClose={() => setShowSkillModal(false)}>
+          <AddSkillForm />
+        </Modal>
+        <br></br>
       </div>
       <br></br>
       <button>Export</button>
