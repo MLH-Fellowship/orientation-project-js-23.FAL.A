@@ -1,5 +1,4 @@
 import "./App.css";
-import { useState } from "react";
 import { SkillsContainer } from "./components/SkillsContainer.jsx";
 import { ExperienceContainer } from "./components/ExperienceContainer";
 import { EducationContainer } from "./components/EducationContainer";

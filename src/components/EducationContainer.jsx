@@ -22,7 +22,7 @@ export const EducationContainer = () => {
           <h2>Education</h2>
           <div className="educationBox">
             {education.map((e) => (
-              <div className="education">
+              <div className="education" key={e.id}>
                 {/* Add a small logo next to the school name */}
                 <div className="content">
                   <h3>{e.schoolName}</h3>  

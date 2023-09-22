@@ -7,6 +7,7 @@ export const ExperienceContainer = () => {
     useEffect(() => {
         setExperience([
           {
+            id: 1,
             companyName: "MLH Fellowship",
             jobTitle: "Software Engineering Fellow",
             startDate: "2023-09",
@@ -15,6 +16,7 @@ export const ExperienceContainer = () => {
             logo: "https://static.mlh.io/brand-assets/logo/official/mlh-logo-color.png",
           },
           {
+            id: 2,
             companyName: "Hello World Inc.",
             jobTitle: "Programmer",
             startDate: "Start Date",
@@ -29,7 +31,7 @@ export const ExperienceContainer = () => {
           <h2>Experience</h2>
           <div className="experienceBox">
             {experience.map((experience) => (
-              <div className="experience">
+              <div className="experience" key={experience.id}>
                 <div className="content">
                   <h3>{experience.companyName} - {experience.jobTitle}</h3>
                   <p className="dates">{experience.startDate} - {experience.endDate}</p>

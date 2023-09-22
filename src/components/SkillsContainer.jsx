@@ -39,7 +39,7 @@ export const SkillsContainer = () => {
           <h2>Skills</h2>
           <div className="skillBox">
             {skills.map((skill) => (
-              <div className="skill">
+              <div className="skill" key={skill.id}>
               <h3>{skill.name}</h3>
               <img src={skill.logo} alt="logo" height={128} width={128} />
               <h4>{skill.proficiency}</h4>
