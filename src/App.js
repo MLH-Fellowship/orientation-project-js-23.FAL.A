@@ -1,4 +1,5 @@
 import "./App.css";
+import ResumeBuilder from './ResumeBuilder';
 
 function App() {
   return (
