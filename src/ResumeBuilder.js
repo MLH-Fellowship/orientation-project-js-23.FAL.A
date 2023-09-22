@@ -17,19 +17,21 @@ function ResumeBuilder() {
   };
 
   const handleDrop = (e) => {
-    e.preventDefault();
-    const sectionId = e.dataTransfer.getData('text/plain');
-    const sectionIndex = sections.findIndex((section) => section.id === sectionId);
+  e.preventDefault();
+  const sectionId = e.dataTransfer.getData('text/plain');
+  const sectionIndex = sections.findIndex((section) => section.id === sectionId);
 
-    if (sectionIndex !== -1) {
-      const updatedSections = [...sections];
-      const [movedSection] = updatedSections.splice(sectionIndex, 1);
-      updatedSections.splice(e.currentTarget.dataset.index, 0, movedSection);
+  if (sectionIndex === -1) {
+    return; //Using Early exit-if, incase the section is not found
+  }
 
-      setSections(updatedSections);
-      updateSectionOrder(updatedSections.map((section) => section.id));
-    }
-  };
+  const updatedSections = [...sections];
+  const [movedSection] = updatedSections.splice(sectionIndex, 1);
+  updatedSections.splice(e.currentTarget.dataset.index, 0, movedSection);
+
+  setSections(updatedSections);
+  updateSectionOrder(updatedSections.map((section) => section.id));
+};
 
   const updateSectionOrder = (sectionOrder) => {
     // Send the updated order to the server via AJAX (e.g., fetch)
