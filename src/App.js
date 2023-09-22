@@ -13,6 +13,6 @@ const App = () => {
       <button>Export</button>
     </div>
   );
-}
+};
 
 export default App;

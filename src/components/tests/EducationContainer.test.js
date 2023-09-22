@@ -15,7 +15,9 @@ describe("EducationContainer component", () => {
 
   it("renders the Add Education button", () => {
     render(<EducationContainer />);
-    const addEducationButton = screen.getByRole("button", { name: /Add Education/i });
+    const addEducationButton = screen.getByRole("button", {
+      name: /Add Education/i,
+    });
     expect(addEducationButton).toBeInTheDocument();
   });
 });

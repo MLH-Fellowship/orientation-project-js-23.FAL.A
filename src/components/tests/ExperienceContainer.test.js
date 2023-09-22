@@ -15,7 +15,9 @@ describe("ExperienceContainer component", () => {
 
   it("renders the Add Experience button", () => {
     render(<ExperienceContainer />);
-    const addExperienceButton = screen.getByRole("button", { name: /Add Experience/i });
+    const addExperienceButton = screen.getByRole("button", {
+      name: /Add Experience/i,
+    });
     expect(addExperienceButton).toBeInTheDocument();
   });
 });
