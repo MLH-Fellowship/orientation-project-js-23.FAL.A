@@ -41,22 +41,29 @@ function ResumeBuilder() {
 };
 
   const updateSectionOrder = (sectionOrder) => {
-    // Send the updated order to the server via AJAX (e.g., fetch)
-    fetch('/resume/reorder', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ new_order: sectionOrder }),
+  // This part of the code is responsible for sending an HTTP POST request to the server to update the order of sections, and it handles the server's response.
+  fetch('/resume/reorder', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ new_order: sectionOrder }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Failed to update section order. Please try again later.');
+      }
+      return response.json();
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data); // Handle the server response as needed
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  };
+    .then((data) => {
+      console.log(data); // Handle the server response as needed
+    })
+    .catch((error) => {
+      console.error('There has been a network or server error. Please try again later.', error);
+      alert(error.message); // Show a user-friendly error message
+    });
+};
+
 
   return (
     <div className="App">
