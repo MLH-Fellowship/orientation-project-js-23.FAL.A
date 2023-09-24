@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { ExperienceContainer } from "../ExperienceContainer";
+import { ExperienceContainer } from "./ExperienceContainer";
 
 describe("ExperienceContainer component", () => {
   it("renders without crashing", () => {
