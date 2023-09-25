@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Resume Builder</h1>
-      <PersonalInfoForm/>
+      <PersonalInfoForm />
       <ExperienceContainer />
       <EducationContainer />
       <SkillsContainer />
