@@ -41,11 +41,7 @@ function PersonalInfoForm() {
         }
         break;
       case "email":
-        if (
-          !new RegExp(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/).test(
-            value
-          )
-        ) {
+        if (!new RegExp(/^([\w._-]+@[\w.-]+\.[\w]{2,})$/).test(value)) {
           newMessage = "Please enter a valid email!";
         }
         break;
