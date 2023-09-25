@@ -121,18 +121,22 @@ function PersonalInfoForm() {
         <div className="form-item">
           <input
             type="text"
+            aria-label="name-input"
             value={values.name}
             placeholder={placeholders.name}
             size={DEFAULT_INPUT_SIZE}
             onChange={(e) => handleSetValueChanges("name", e)}
           />
-          <div className="error-message">{errors.name}</div>
+          <div className="error-message" id="name-error">
+            {errors.name}
+          </div>
         </div>
         <div className="form-item">
           <div className="phone-form-item">
             <input
               type="text"
               className="prefix-input"
+              aria-label="prefix-input"
               name="phonePrefix"
               id="phonePrefix"
               placeholder="+"
@@ -143,6 +147,7 @@ function PersonalInfoForm() {
             <input
               type="tel"
               className="phone-input"
+              aria-label="phone-input"
               name="phone"
               id="phone"
               value={values.phone}
@@ -159,6 +164,7 @@ function PersonalInfoForm() {
           <input
             type="email"
             name="email"
+            aria-label="email-input"
             id="email"
             value={values.email}
             placeholder={placeholders.email}
@@ -168,7 +174,11 @@ function PersonalInfoForm() {
           <div className="error-message">{errors.email}</div>
         </div>
       </form>
-      <button onClick={handlePersonalInfoSubmit} className="update-button">
+      <button
+        onClick={handlePersonalInfoSubmit}
+        className="update-button"
+        aria-label="update-button"
+      >
         Update
       </button>
     </div>
