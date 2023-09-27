@@ -1,7 +1,7 @@
 import "./App.css";
-import { SkillsContainer } from "./components/SkillsContainer.jsx";
-import { ExperienceContainer } from "./components/ExperienceContainer";
-import { EducationContainer } from "./components/EducationContainer";
+import { SkillsContainer } from "./components/SkillsContainer/SkillsContainer";
+import { ExperienceContainer } from "./components/ExperienceContainer/ExperienceContainer";
+import { EducationContainer } from "./components/EducationContainer/EducationContainer";
 import PersonalInfoForm from "./components/PersonalInfoForm/PersonalInfoForm";
 
 const App = () => {
