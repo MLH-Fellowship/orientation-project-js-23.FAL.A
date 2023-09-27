@@ -1,20 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import FileDropzone from "./components/FileDropzone";
+import App from "./App";
 
-describe("Drag and drop component", () => {
-  test("renders file dropzone", () => {
-    render(<FileDropzone />);
-
-    const elem = screen.getByText(
-      /Drag 'n' drop some files here, or click to select file/
-    );
-    expect(elem).toBeInTheDocument();
-  });
-
-  test("do not render file upload btn", () => {
-    render(<FileDropzone />);
-
-    const elem = screen.queryByText(/Confirm upload/);
-    expect(elem).not.toBeInTheDocument();
-  });
+test("renders resume builder title", () => {
+  render(<App />);
+  const linkElement = screen.getByText(/Resume Builder/i);
+  expect(linkElement).toBeInTheDocument();
 });
