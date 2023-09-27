@@ -111,9 +111,9 @@ export default function FileDropzone({ className }) {
       formData.append("file", selectedFile.file);
 
       try {
-        console.log("Upload successful");
+        alert("Upload successful");
       } catch (error) {
-        console.log("Upload failed");
+        alert("Upload failed");
       }
     }
   };
