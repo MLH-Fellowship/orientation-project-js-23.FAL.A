@@ -1,5 +1,10 @@
 import "./App.css";
-
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
 function App() {
   return (
     <div className="App">
@@ -7,13 +12,19 @@ function App() {
       <div className="resumeSection">
         <h2>Experience</h2>
         <p>Experience Placeholder</p>
-        <button>Add Experience</button>
+        <Link
+          to="/add-experience">
+        Add Experience
+        </Link>
         <br></br>
       </div>
       <div className="resumeSection">
         <h2>Education</h2>
         <p>Education Placeholder</p>
-        <button>Add Education</button>
+        <Link
+          to="/add-education">
+        Add Education
+        </Link>
         <br></br>
       </div>
       <div className="resumeSection">
