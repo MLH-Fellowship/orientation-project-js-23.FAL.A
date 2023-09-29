@@ -1,4 +1,5 @@
 import "./App.css";
+import ResumeBuilder from './ResumeBuilder';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         <p>Skill Placeholder</p>
         <button>Add Skill</button>
         <br></br>
+      </div>
+      <div className="App">
+        <ResumeBuilder />
       </div>
       <br></br>
       <button>Export</button>
