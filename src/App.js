@@ -1,42 +1,20 @@
 import "./App.css";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-} from "react-router-dom";
-function App() {
+import { SkillsContainer } from "./components/SkillsContainer.jsx";
+import { ExperienceContainer } from "./components/ExperienceContainer";
+import { EducationContainer } from "./components/EducationContainer";
+import PersonalInfoForm from "./components/PersonalInfoForm/PersonalInfoForm";
+
+const App = () => {
   return (
     <div className="App">
       <h1>Resume Builder</h1>
-      <div className="resumeSection">
-        <h2>Experience</h2>
-        <p>Experience Placeholder</p>
-        <Link
-          to="/add-experience">
-        Add Experience
-        </Link>
-        <br></br>
-      </div>
-      <div className="resumeSection">
-        <h2>Education</h2>
-        <p>Education Placeholder</p>
-        <Link
-          to="/add-education">
-        Add Education
-        </Link>
-        <br></br>
-      </div>
-      <div className="resumeSection">
-        <h2>Skills</h2>
-        <p>Skill Placeholder</p>
-        <button>Add Skill</button>
-        <br></br>
-      </div>
-      <br></br>
+      <PersonalInfoForm />
+      <ExperienceContainer />
+      <EducationContainer />
+      <SkillsContainer />
       <button>Export</button>
     </div>
   );
-}
+};
 
 export default App;
