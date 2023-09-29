@@ -3,7 +3,7 @@ import React, { createContext, useContext, useReducer } from "react";
 // Define your reducer function
 function reducer(state, action) {
   switch (action.type) {
-    case 'UPDATE_PERSONAL_INFO':
+    case ActionTypes.UPDATE_PERSONAL_INFO:
       return {
         ...state,
         personalInfo: {
@@ -11,22 +11,22 @@ function reducer(state, action) {
           ...action.payload
         }
       };
-    case 'ADD_EXPERIENCE':
+    case ActionTypes.ADD_EXPERIENCE:
       return {
         ...state,
         experience: [...state.experience, action.payload]
       };
-    case 'ADD_EDUCATION':
+    case ActionTypes.ADD_EDUCATION:
       return {
         ...state,
         education: [...state.education, action.payload]
       };
-    case 'ADD_SKILL':
+    case ActionTypes.ADD_SKILL:
       return {
         ...state,
         skills: [...state.skills, action.payload]
       };
-    case 'ADD_PROJECT':
+    case ActionTypes.ADD_PROJECT:
       return {
         ...state,
         projects: [...state.projects, action.payload]
