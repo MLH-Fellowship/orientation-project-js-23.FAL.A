@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./PersonalInfoForm.css";
 
 function PersonalInfoForm() {
@@ -10,6 +10,9 @@ function PersonalInfoForm() {
     name: "Name",
     phone: "Phone",
     email: "Email",
+    github: "Github",
+    website: "Website",
+    linkedin: "LinkedIn",
   };
 
   const [values, setValues] = useState({
@@ -17,14 +20,18 @@ function PersonalInfoForm() {
     phonePrefix: "+",
     phone: "",
     email: "",
+    github: "",
+    website: "",
+    linkedin: "",
   });
   const [errors, setErrors] = useState({
     name: "",
     phone: "",
     email: "",
+    github: "",
+    website: "",
+    linkedin: "",
   });
-
-  //TODO: Fetch user information if it already exists
 
   const validateValueChange = (valueType, value) => {
     let newMessage = "";
@@ -45,6 +52,16 @@ function PersonalInfoForm() {
           newMessage = "Please enter a valid email!";
         }
         break;
+      // Add validation rules for GitHub, website, and LinkedIn here
+      case "github":
+        // Add GitHub validation logic here
+        break;
+      case "website":
+        // Add website validation logic here
+        break;
+      case "linkedin":
+        // Add LinkedIn validation logic here
+        break;
       default:
         if (!value) {
           newMessage = "Please enter a name!";
@@ -63,7 +80,7 @@ function PersonalInfoForm() {
     numericOnlyNumber = numericOnlyNumber.substring(
       0,
       Math.min(PHONE_NUMBER_LENGTH, numericOnlyNumber.length)
-    ); // If the number is too long, will trim it
+    ); // If the number is too long, it will trim it
     return numericOnlyNumber;
   };
 
@@ -96,9 +113,9 @@ function PersonalInfoForm() {
         formIsValid = false;
       }
     }
-    if (!formIsValid) return; //Goes through each form item and returns if at least one is invalid
+    if (!formIsValid) return; // Goes through each form item and returns if at least one is invalid
 
-    //Post form logic
+    // Post form logic
     let body = {
       ...values,
       phone: values.phonePrefix + values.phone,
@@ -109,9 +126,9 @@ function PersonalInfoForm() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     };
-    //TODO: Use PUT instead of POST if user already exists
+    // TODO: Use PUT instead of POST if user already exists
     console.log(requestOptions);
-    // fetch('/resume/user',requestOptions)
+    // fetch('/resume/user', requestOptions)
     //     .then(() => console.log('Posted new user information'));
   };
 
@@ -172,6 +189,45 @@ function PersonalInfoForm() {
             onChange={(e) => handleSetValueChanges("email", e)}
           />
           <div className="error-message">{errors.email}</div>
+        </div>
+        <div className="form-item">
+          <input
+            type="text"
+            name="github"
+            aria-label="github-input"
+            id="github"
+            value={values.github}
+            placeholder={placeholders.github}
+            size={DEFAULT_INPUT_SIZE}
+            onChange={(e) => handleSetValueChanges("github", e)}
+          />
+          <div className="error-message">{errors.github}</div>
+        </div>
+        <div className="form-item">
+          <input
+            type="text"
+            name="website"
+            aria-label="website-input"
+            id="website"
+            value={values.website}
+            placeholder={placeholders.website}
+            size={DEFAULT_INPUT_SIZE}
+            onChange={(e) => handleSetValueChanges("website", e)}
+          />
+          <div className="error-message">{errors.website}</div>
+        </div>
+        <div className="form-item">
+          <input
+            type="text"
+            name="linkedin"
+            aria-label="linkedin-input"
+            id="linkedin"
+            value={values.linkedin}
+            placeholder={placeholders.linkedin}
+            size={DEFAULT_INPUT_SIZE}
+            onChange={(e) => handleSetValueChanges("linkedin", e)}
+          />
+          <div className="error-message">{errors.linkedin}</div>
         </div>
       </form>
       <button
