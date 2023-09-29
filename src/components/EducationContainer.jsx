@@ -1,47 +1,91 @@
-import { useState, useEffect } from "react";
-import "./EducationContainer.css";
-
+import React, { useContext } from 'react';
+import { GlobalContext } from '../globalStoreProvider';
+import './EducationContainer.css';
 export const EducationContainer = () => {
-  const [education, setEducation] = useState([]);
+  const { state, dispatch } = useContext(GlobalContext);
 
-  useEffect(() => {
-    setEducation(mockEducation);
-  }, []);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    dispatch({
+      type: 'UPDATE_EDUCATION',
+      payload: {
+        [name]: value,
+      },
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch({
+      type: 'ADD_EDUCATION',
+      payload: {
+        course: state.education.course,
+        school: state.education.school,
+        start_date: state.education.start_date,
+        end_date: state.education.end_date,
+        grade: state.education.grade,
+        logo: state.education.logo,
+      },
+    });
+
+    // Reset the form
+    state.education.course = '';
+    state.education.school = '';
+    state.education.start_date = '';
+    state.education.end_date = '';
+    state.education.grade = '';
+    state.education.logo = '';
+  };
 
   return (
-    <div className="resumeSection">
-      <h2>Education</h2>
-      <div className="educationBox">
-        {education.map((e) => (
-          <div className="education" key={e.id}>
-            {/* Add a small logo next to the school name */}
-            <div className="content">
-              <h3>
-                {e.school} - {e.course}
-              </h3>
-              <p className="dates">
-                {e.startDate} - {e.endDate} &nbsp; Grade: {e.grade}
-              </p>
-            </div>
-            <div className="logo">
-              <img src={e.logo} alt="logo" height={128} width={128} />
-            </div>
-          </div>
-        ))}
-      </div>
-      <button>Add Education</button>
+    <div className='education-form-container'>
+    <form className="education-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="course"
+        placeholder="Course"
+        value={state.education.course}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        name="school"
+        placeholder="School"
+        value={state.education.school}
+        onChange={handleChange}
+      />
+      <input
+        type="date"
+        name="start_date"
+        placeholder="Start Date"
+        value={state.education.start_date}
+        onChange={handleChange}
+      />
+      <input
+        type="date"
+        name="end_date"
+        placeholder="End Date"
+        value={state.education.end_date}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        name="grade"
+        placeholder="Grade"
+        value={state.education.grade}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        name="logo"
+        placeholder="Logo URL"
+        value={state.education.logo}
+        onChange={handleChange}
+      />
+      <button type="submit">Add Education</button>
+    </form>
     </div>
   );
 };
 
-export const mockEducation = [
-  {
-    id: 1,
-    course: "Cool Class",
-    school: "Cool University",
-    startDate: "2021-09",
-    endDate: "2025-06",
-    grade: "99%",
-    logo: "https://static.mlh.io/brand-assets/logo/official/mlh-logo-color.png",
-  },
-];

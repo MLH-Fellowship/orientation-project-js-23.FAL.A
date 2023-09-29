@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import AppEducation from "./pages/AddEducation";
+import {EducationContainer} from "./components/EducationContainer";
 import reportWebVitals from "./reportWebVitals";
 import {
   createBrowserRouter,
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/add-education",
-    element: <AppEducation />,
+    element: <EducationContainer />,
   }
 ]);
 
