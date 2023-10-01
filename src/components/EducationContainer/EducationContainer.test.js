@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { EducationContainer } from "./EducationContainer";
+import { EducationContainer } from "./EducationContainer.jsx";
 
 describe("EducationContainer component", () => {
   it("renders without crashing", () => {
