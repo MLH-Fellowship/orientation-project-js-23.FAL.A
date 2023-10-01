@@ -3,7 +3,7 @@ import { GlobalContext } from "../../globalStoreProvider";
 import "./EducationContainer.css";
 export const EducationContainer = () => {
   const { state, dispatch } = useContext(GlobalContext);
-
+  console.log(state);
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch({
