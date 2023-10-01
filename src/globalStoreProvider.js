@@ -8,28 +8,28 @@ function reducer(state, action) {
         ...state,
         personalInfo: {
           ...state.personalInfo,
-          ...action.payload
-        }
+          ...action.payload,
+        },
       };
     case ActionTypes.ADD_EXPERIENCE:
       return {
         ...state,
-        experience: [...state.experience, action.payload]
+        experience: [...state.experience, action.payload],
       };
     case ActionTypes.ADD_EDUCATION:
       return {
         ...state,
-        education: [...state.education, action.payload]
+        education: [...state.education, action.payload],
       };
     case ActionTypes.ADD_SKILL:
       return {
         ...state,
-        skills: [...state.skills, action.payload]
+        skills: [...state.skills, action.payload],
       };
     case ActionTypes.ADD_PROJECT:
       return {
         ...state,
-        projects: [...state.projects, action.payload]
+        projects: [...state.projects, action.payload],
       };
     default:
       return state;
@@ -37,56 +37,55 @@ function reducer(state, action) {
 }
 
 export const ActionTypes = {
-  UPDATE_PERSONAL_INFO: 'UPDATE_PERSONAL_INFO',
-  ADD_EXPERIENCE: 'ADD_EXPERIENCE',
-  ADD_EDUCATION: 'ADD_EDUCATION',
-  ADD_SKILL: 'ADD_SKILL',
-  ADD_PROJECT: 'ADD_PROJECT',
+  UPDATE_PERSONAL_INFO: "UPDATE_PERSONAL_INFO",
+  ADD_EXPERIENCE: "ADD_EXPERIENCE",
+  ADD_EDUCATION: "ADD_EDUCATION",
+  ADD_SKILL: "ADD_SKILL",
+  ADD_PROJECT: "ADD_PROJECT",
 };
 
-
 const initialState = {
-    personalInfo: {
-      first_name: '',
-      last_name: '',
-      middle_name: ''
+  personalInfo: {
+    first_name: "",
+    last_name: "",
+    middle_name: "",
+  },
+  experience: [
+    {
+      title: "",
+      company: "",
+      start_date: "",
+      end_date: "",
+      description: "",
+      logo: "",
     },
-    experience: [
-      {
-        title: '',
-        company: '',
-        start_date: '',
-        end_date: '',
-        description: '',
-        logo: ''
-      }
-    ],
-    education: [
-      {
-        course: '',
-        school: '',
-        start_date: '',
-        end_date: '',
-        grade: '',
-        logo: ''
-      }
-    ],
-    skills: [
-      {
-        name: '',
-        proficiency: '',
-        logo: ''
-      }
-    ],
-    projects: [
-      {
-        name: '',
-        languages: [],
-        description: '',
-        link: ''
-      }
-    ]
-  };
+  ],
+  education: [
+    {
+      course: "",
+      school: "",
+      start_date: "",
+      end_date: "",
+      grade: "",
+      logo: "",
+    },
+  ],
+  skills: [
+    {
+      name: "",
+      proficiency: "",
+      logo: "",
+    },
+  ],
+  projects: [
+    {
+      name: "",
+      languages: [],
+      description: "",
+      link: "",
+    },
+  ],
+};
 
 export const GlobalContext = createContext();
 

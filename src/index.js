@@ -2,12 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import {EducationContainer} from "./components/EducationContainer";
+import { EducationContainer } from "./components/EducationContainer";
 import reportWebVitals from "./reportWebVitals";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import GlobalStoreProvider from "./globalStoreProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -20,15 +17,14 @@ const router = createBrowserRouter([
   {
     path: "/add-education",
     element: <EducationContainer />,
-  }
+  },
 ]);
-
 
 root.render(
   <React.StrictMode>
     <GlobalStoreProvider>
-     <RouterProvider router={router} />
-     </GlobalStoreProvider>
+      <RouterProvider router={router} />
+    </GlobalStoreProvider>
   </React.StrictMode>
 );
 
