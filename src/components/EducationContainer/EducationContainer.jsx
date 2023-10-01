@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { GlobalContext } from "../globalStoreProvider";
+import { GlobalContext } from "../../globalStoreProvider";
 import "./EducationContainer.css";
 export const EducationContainer = () => {
   const { state, dispatch } = useContext(GlobalContext);
