@@ -1,0 +1,24 @@
+.education-form {
+  width: 30rem;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.education-form input,
+.education-form button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.education-form button {
+  background-color: #000;
+  color: #fff;
+}
+
+.education-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

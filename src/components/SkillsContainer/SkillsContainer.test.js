@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { SkillsContainer } from "../SkillsContainer";
+import { SkillsContainer } from "./SkillsContainer";
 
 describe("SkillsContainer component", () => {
   it("renders without crashing", () => {
