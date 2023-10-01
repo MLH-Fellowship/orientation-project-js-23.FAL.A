@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { EducationContainer } from "./components/EducationContainer";
+import { EducationContainer } from "./components/EducationContainer/EducationContainer";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import GlobalStoreProvider from "./globalStoreProvider";
