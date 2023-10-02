@@ -3,9 +3,19 @@ import "./EducationContainer.css";
 
 export const EducationContainer = () => {
   const [education, setEducation] = useState([]);
-
+  // Create a function to sanitize HTML content using the global sanitizeHTML function
+  const sanitizeHTML = (html) => {
+    return window.sanitizeHTML(html);
+  };
   useEffect(() => {
-    setEducation(mockEducation);
+    // Sanitize HTML content before setting it
+    const sanitizedEducation = mockEducation.map((e) => ({
+      ...e,
+      school: sanitizeHTML(e.school),
+      course: sanitizeHTML(e.course),
+      grade: sanitizeHTML(e.grade),
+    }));
+    setEducation(sanitizedEducation);
   }, []);
 
   return (
@@ -43,5 +53,5 @@ export const mockEducation = [
     endDate: "2025-06",
     grade: "99%",
     logo: "https://static.mlh.io/brand-assets/logo/official/mlh-logo-color.png",
-  },
+  },
 ];

@@ -15,6 +15,11 @@ function PersonalInfoForm() {
     linkedin: "LinkedIn",
   };
 
+  // Create a function to sanitize HTML content using the global sanitizeHTML function
+  const sanitizeHTML = (html) => {
+    return window.sanitizeHTML(html);
+  };
+
   const [values, setValues] = useState({
     name: "",
     phonePrefix: "+",
@@ -139,7 +144,7 @@ function PersonalInfoForm() {
           <input
             type="text"
             aria-label="name-input"
-            value={values.name}
+            value={sanitizeHTML(values.name)} // Sanitize the 'name' value
             placeholder={placeholders.name}
             size={DEFAULT_INPUT_SIZE}
             onChange={(e) => handleSetValueChanges("name", e)}
@@ -157,7 +162,7 @@ function PersonalInfoForm() {
               name="phonePrefix"
               id="phonePrefix"
               placeholder="+"
-              value={values.phonePrefix}
+              value={sanitizeHTML(values.phonePrefix)} // Sanitize the 'phonePrefix' value
               size={MAX_PHONE_PREFIX_LENGTH}
               onChange={(e) => handleSetValueChanges("phonePrefix", e)}
             />
@@ -167,7 +172,7 @@ function PersonalInfoForm() {
               aria-label="phone-input"
               name="phone"
               id="phone"
-              value={values.phone}
+              value={sanitizeHTML(values.phone)} // Sanitize the 'phone' value
               placeholder={placeholders.phone}
               size={DEFAULT_INPUT_SIZE - 1}
               onChange={(e) => handleSetValueChanges("phone", e)}
@@ -183,7 +188,7 @@ function PersonalInfoForm() {
             name="email"
             aria-label="email-input"
             id="email"
-            value={values.email}
+            value={sanitizeHTML(values.email)} // Sanitize the 'email' value
             placeholder={placeholders.email}
             size={DEFAULT_INPUT_SIZE}
             onChange={(e) => handleSetValueChanges("email", e)}
@@ -196,7 +201,7 @@ function PersonalInfoForm() {
             name="github"
             aria-label="github-input"
             id="github"
-            value={values.github}
+            value={sanitizeHTML(values.github)} // Sanitize the 'github' value
             placeholder={placeholders.github}
             size={DEFAULT_INPUT_SIZE}
             onChange={(e) => handleSetValueChanges("github", e)}
@@ -209,7 +214,7 @@ function PersonalInfoForm() {
             name="website"
             aria-label="website-input"
             id="website"
-            value={values.website}
+            value={sanitizeHTML(values.website)} // Sanitize the 'website' value
             placeholder={placeholders.website}
             size={DEFAULT_INPUT_SIZE}
             onChange={(e) => handleSetValueChanges("website", e)}
@@ -222,7 +227,7 @@ function PersonalInfoForm() {
             name="linkedin"
             aria-label="linkedin-input"
             id="linkedin"
-            value={values.linkedin}
+            value={sanitizeHTML(values.linkedin)} // Sanitize the 'linkedin' value
             placeholder={placeholders.linkedin}
             size={DEFAULT_INPUT_SIZE}
             onChange={(e) => handleSetValueChanges("linkedin", e)}
