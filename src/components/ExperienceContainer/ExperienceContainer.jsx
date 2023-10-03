@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./ExperienceContainer.css";
+import {sanitizeHTML} from "../../utils";
 
 export const ExperienceContainer = () => {
   const [experienceList, setExperienceList] = useState([]);
@@ -16,31 +17,31 @@ export const ExperienceContainer = () => {
     );
 
     // Get the values from the form
-    const company = document.getElementById("company").value;
-    const title = document.getElementById("title").value;
-    const startDate = document.getElementById("startDate").value;
-    const endDate = document.getElementById("endDate").value;
-    const description = document.getElementById("description").value;
-    const logo = document.getElementById("logo").value;
+    const company = sanitizeHTML(document.getElementById("company").value);
+    const title = sanitizeHTML(document.getElementById("title").value);
+    const startDate = sanitizeHTML(document.getElementById("startDate").value);
+    const endDate = sanitizeHTML(document.getElementById("endDate").value);
+    const description = sanitizeHTML(
+      document.getElementById("description").value
+    );
+    const logo = sanitizeHTML(document.getElementById("logo").value);
 
     // Delete the content of the experience card
     experienceCard.innerHTML = "";
 
     // Append new content
-    const html = `<div class="content">
-                    <h3>
-                      ${company} - ${title}
-                    </h3>
-                    <p class="dates">
-                      ${startDate} - ${endDate}
-                    </p>
-                    <p class="description">${description}</p>
-                  </div>
-                  <div class="logo">
-                    <img src=${logo} alt="logo" height=${128} width=${128} />
-                  </div>`;
+    const sanitizedHtml = sanitizeHTML(`
+      <div class="content">
+        <h3>${company} - ${title}</h3>
+        <p class="dates">${startDate} - ${endDate}</p>
+        <p class="description">${description}</p>
+      </div>
+      <div class="logo">
+        <img src="${logo}" alt="logo" height="128" width="128" />
+      </div>
+    `);
 
-    experienceCard.innerHTML = html;
+    experienceCard.innerHTML = sanitizedHtml;
 
     // Create edit button
     const editDiv = document.createElement("div");
@@ -72,35 +73,23 @@ export const ExperienceContainer = () => {
     experienceCard.innerHTML = "";
 
     // Append new content
-    const html = `<div class="content">
-                    <form class="editForm">
-                      <input type="text" id="company" name="company" value='${
-                        experience.company
-                      }' placeholder="Company" /> 
-                      -
-                      <input type="text" id="title" name="title" value='${
-                        experience.title
-                      }' placeholder="Title" /><br>
-                      <input type="text" id="startDate" name="startDate" value='${
-                        experience.startDate
-                      }' placeholder="Start Date" /> -
-                      <input type="text" id="endDate" name="endDate" value='${
-                        experience.endDate
-                      }' placeholder="End Date" />
-                      <textarea id="description" name="description" rows="6" cols="40" placeholder="Description">${
-                        experience.description
-                      }</textarea>
-                    </form>
-                  </div>
-                  <div class="logo-edit">
-                    <input type="text" id="logo" name="logo" value='${
-                      experience.logo
-                    }' placeholder="Logo URL" />
-                    <img src=${
-                      experience.logo
-                    } alt="logo" height=${128} width=${128} />
-                  </div>`;
-    experienceCard.innerHTML = html;
+    const sanitizedHtml = sanitizeHTML(`
+      <div class="content">
+        <form class="editForm">
+          <input type="text" id="company" name="company" value="${experience.company}" placeholder="Company" /> -
+          <input type="text" id="title" name="title" value="${experience.title}" placeholder="Title" /><br>
+          <input type="text" id="startDate" name="startDate" value="${experience.startDate}" placeholder="Start Date" /> -
+          <input type="text" id="endDate" name="endDate" value="${experience.endDate}" placeholder="End Date" />
+          <textarea id="description" name="description" rows="6" cols="40" placeholder="Description">${experience.description}</textarea>
+        </form>
+      </div>
+      <div class="logo-edit">
+        <input type="text" id="logo" name="logo" value="${experience.logo}" placeholder="Logo URL" />
+        <img src="${experience.logo}" alt="logo" height="128" width="128" />
+      </div>
+    `);
+
+    experienceCard.innerHTML = sanitizedHtml;
 
     // Create save button
     const saveButton = document.createElement("button");

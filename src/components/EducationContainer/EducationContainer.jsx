@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../../globalStoreProvider";
 import "./EducationContainer.css";
+import {sanitizeHTML} from "../../utils";
+
 export const EducationContainer = () => {
   const { state, dispatch } = useContext(GlobalContext);
   console.log(state);
@@ -20,12 +22,12 @@ export const EducationContainer = () => {
     dispatch({
       type: "ADD_EDUCATION",
       payload: {
-        course: state.education.course,
-        school: state.education.school,
-        start_date: state.education.start_date,
-        end_date: state.education.end_date,
-        grade: state.education.grade,
-        logo: state.education.logo,
+        course: sanitizeHTML(state.education.course),
+        school: sanitizeHTML(state.education.school),
+        start_date: sanitizeHTML(state.education.start_date),
+        end_date: sanitizeHTML(state.education.end_date),
+        grade: sanitizeHTML(state.education.grade),
+        logo: sanitizeHTML(state.education.logo),
       },
     });
 

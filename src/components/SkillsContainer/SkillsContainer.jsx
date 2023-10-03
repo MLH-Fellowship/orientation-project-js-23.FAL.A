@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./SkillsContainer.css";
+import {sanitizeHTML} from "../../utils";
 
 export const SkillsContainer = () => {
   const [skills, setSkills] = useState([]);
@@ -14,9 +15,14 @@ export const SkillsContainer = () => {
       <div className="skillBox">
         {skills.map((skill) => (
           <div className="skill" key={skill.id}>
-            <h3>{skill.name}</h3>
-            <img src={skill.logo} alt="logo" height={128} width={128} />
-            <h4>{skill.proficiency}</h4>
+            <h3>{sanitizeHTML(skill.name)}</h3>
+            <img
+              src={sanitizeHTML(skill.logo)}
+              alt="logo"
+              height={128}
+              width={128}
+            />
+            <h4>{sanitizeHTML(skill.proficiency)}</h4>
           </div>
         ))}
       </div>
