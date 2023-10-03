@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./PersonalInfoForm.css";
+import {sanitizeHTML} from "../../utils";
 
 function PersonalInfoForm() {
   const PHONE_NUMBER_LENGTH = 10;
@@ -13,11 +14,6 @@ function PersonalInfoForm() {
     github: "Github",
     website: "Website",
     linkedin: "LinkedIn",
-  };
-
-  // Create a function to sanitize HTML content using the global sanitizeHTML function
-  const sanitizeHTML = (html) => {
-    return window.sanitizeHTML(html);
   };
 
   const [values, setValues] = useState({
@@ -57,15 +53,26 @@ function PersonalInfoForm() {
           newMessage = "Please enter a valid email!";
         }
         break;
-      // Add validation rules for GitHub, website, and LinkedIn here
       case "github":
-        // Add GitHub validation logic here
+        const githubUrlFormat =
+          /^(https:\/\/)?(www\.)?github\.com\/[A-Za-z0-9_-]+(\/[A-Za-z0-9_-]+)?$/;
+        if (!githubUrlFormat.test(value)) {
+          newMessage = "Please enter a valid GitHub URL!";
+        }
         break;
       case "website":
-        // Add website validation logic here
+        const websiteUrlFormat =
+          /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+        if (!websiteUrlFormat.test(value)) {
+          newMessage = "Please enter a valid website URL!";
+        }
         break;
       case "linkedin":
-        // Add LinkedIn validation logic here
+        const linkedinUrlFormat =
+          /^(https:\/\/)?(www\.)?linkedin\.com\/in\/[A-Za-z0-9_-]+/;
+        if (!linkedinUrlFormat.test(value)) {
+          newMessage = "Please enter a valid LinkedIn profile URL!";
+        }
         break;
       default:
         if (!value) {
@@ -77,8 +84,8 @@ function PersonalInfoForm() {
       ...prevErrors,
       [valueType]: newMessage,
     }));
-    return newMessage === "";
-  };
+    return newMessage === "";
+  };
 
   const formatPhoneNumber = (phoneNumber) => {
     let numericOnlyNumber = phoneNumber.replace(/\D/g, "");

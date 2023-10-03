@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import "./EducationContainer.css";
+import {sanitizeHTML} from "../../utils";
 
 export const EducationContainer = () => {
   const [education, setEducation] = useState([]);
-  // Create a function to sanitize HTML content using the global sanitizeHTML function
-  const sanitizeHTML = (html) => {
-    return window.sanitizeHTML(html);
-  };
+
   useEffect(() => {
     // Sanitize HTML content before setting it
     const sanitizedEducation = mockEducation.map((e) => ({

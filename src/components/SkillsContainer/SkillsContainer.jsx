@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./SkillsContainer.css";
+import {sanitizeHTML} from "../../utils";
 
 export const SkillsContainer = () => {
   const [skills, setSkills] = useState([]);
@@ -7,12 +8,6 @@ export const SkillsContainer = () => {
   useEffect(() => {
     setSkills(mockSkills);
   }, []);
-
-  // Define a function to sanitize HTML
-  const sanitizeHTML = (html) => {
-    // Use window.sanitizeHTML here to sanitize the HTML
-    return window.sanitizeHTML(html);
-  };
 
   return (
     <div className="resumeSection">

@@ -1,8 +1,8 @@
 .personal-form-container {
-  width: 300px; /* Adjust the width as needed */
+  width: 18.75rem;
   margin: 0 auto;
-  padding: 20px;
-  border-radius: 5px;
+  padding: 1.25rem;
+  border-radius: 0.312rem;
 }
 
 .personal-form {

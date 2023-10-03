@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ExperienceContainer.css";
+import {sanitizeHTML} from "../../utils";
 
 export const ExperienceContainer = () => {
   const [experienceList, setExperienceList] = useState([]);
@@ -7,12 +8,6 @@ export const ExperienceContainer = () => {
   useEffect(() => {
     setExperienceList(mockExperience);
   }, []);
-
-  // Define a function to sanitize HTML
-  const sanitizeHTML = (html) => {
-    // Use window.sanitizeHTML here to sanitize the HTML
-    return window.sanitizeHTML(html);
-  };
 
   // Saves the experience card by closing the form
   const saveEditForm = (experience) => () => {
